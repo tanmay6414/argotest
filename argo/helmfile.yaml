@@ -1,20 +1,12 @@
 repositories:
-  - name: prometheus-community
-    url: https://prometheus-community.github.io/helm-charts
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
- 
+
 releases:
-- name: prometheus
-  namespace: prometheus
-  chart: prometheus-community/prometheus
-  set:
-  - name: rbac.create
-    value: false
-- name: postgresql
-  namespace: postgresql
-  chart: bitnami/postgresql
-  values:
-    - auth:
-        username: secret-user
-        password: secret-password
+  - name: postgresql
+    namespace: default
+    chart: bitnami/postgresql
+    values:
+      - auth:
+          username: my-user
+          password: my-password
